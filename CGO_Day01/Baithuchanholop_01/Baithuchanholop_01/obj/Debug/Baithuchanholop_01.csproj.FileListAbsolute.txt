@@ -1,0 +1,8 @@
+D:\Unity_Code\Githud\BasicCsharp\Nhanlele_LearningCSharp\CGO_Day01\Baithuchanholop_01\Baithuchanholop_01\bin\Debug\Baithuchanholop_01.exe.config
+D:\Unity_Code\Githud\BasicCsharp\Nhanlele_LearningCSharp\CGO_Day01\Baithuchanholop_01\Baithuchanholop_01\bin\Debug\Baithuchanholop_01.exe
+D:\Unity_Code\Githud\BasicCsharp\Nhanlele_LearningCSharp\CGO_Day01\Baithuchanholop_01\Baithuchanholop_01\bin\Debug\Baithuchanholop_01.pdb
+D:\Unity_Code\Githud\BasicCsharp\Nhanlele_LearningCSharp\CGO_Day01\Baithuchanholop_01\Baithuchanholop_01\obj\Debug\Baithuchanholop_01.csproj.AssemblyReference.cache
+D:\Unity_Code\Githud\BasicCsharp\Nhanlele_LearningCSharp\CGO_Day01\Baithuchanholop_01\Baithuchanholop_01\obj\Debug\Baithuchanholop_01.csproj.SuggestedBindingRedirects.cache
+D:\Unity_Code\Githud\BasicCsharp\Nhanlele_LearningCSharp\CGO_Day01\Baithuchanholop_01\Baithuchanholop_01\obj\Debug\Baithuchanholop_01.csproj.CoreCompileInputs.cache
+D:\Unity_Code\Githud\BasicCsharp\Nhanlele_LearningCSharp\CGO_Day01\Baithuchanholop_01\Baithuchanholop_01\obj\Debug\Baithuchanholop_01.exe
+D:\Unity_Code\Githud\BasicCsharp\Nhanlele_LearningCSharp\CGO_Day01\Baithuchanholop_01\Baithuchanholop_01\obj\Debug\Baithuchanholop_01.pdb
