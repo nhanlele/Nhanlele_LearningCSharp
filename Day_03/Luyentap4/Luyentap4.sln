@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "test\test.csproj", "{D559EDFE-E764-4CE2-8872-12C69C3281B0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Luyentap4", "Luyentap4\Luyentap4.csproj", "{31047214-3039-4DB3-B986-C5425B83BE44}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D559EDFE-E764-4CE2-8872-12C69C3281B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D559EDFE-E764-4CE2-8872-12C69C3281B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D559EDFE-E764-4CE2-8872-12C69C3281B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D559EDFE-E764-4CE2-8872-12C69C3281B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31047214-3039-4DB3-B986-C5425B83BE44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31047214-3039-4DB3-B986-C5425B83BE44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31047214-3039-4DB3-B986-C5425B83BE44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31047214-3039-4DB3-B986-C5425B83BE44}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {14E2FAEF-D6CC-4235-858B-88A69B876560}
+		SolutionGuid = {9536DDD7-F0DD-4E4B-8E0B-0AAC5A6CBB97}
 	EndGlobalSection
 EndGlobal
