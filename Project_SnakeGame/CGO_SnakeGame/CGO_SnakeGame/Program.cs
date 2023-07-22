@@ -9,7 +9,7 @@ namespace CGO_Thuchanh_Snakegame
 {
     class Program
     {
-        // Parameter
+       
         public Random rand = new Random();
         public ConsoleKeyInfo keypress = new ConsoleKeyInfo();
         int score, headX, headY, fruitX, fruitY, nTail;
@@ -21,64 +21,63 @@ namespace CGO_Thuchanh_Snakegame
         bool gameOver, reset, isprinted, horizontal, vertical;
         string dir, pre_dir;
 
-        int high_score = 0; //cap nhat diem cao nhat
-        int typefruit = 1;  //cap nhat gia tri qua
-        List<string> symbolfruit = new List<string>() { "?", "@", "$", "*", "~" }; //doi dang ki tu
-        //Hien thi man hinh bat dau
+        int high_score = 0; 
+        int typefruit = 1;  
+        List<string> symbolfruit = new List<string>() { "?", "@", "$", "*", "~" }; 
+        
         void ShowBanner()
         {
-            Console.SetWindowSize(width, height + panel); //height còn thêm thông báo panel
+            Console.SetWindowSize(width, height + panel); 
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.CursorVisible = false;   //ẩn cỏn trỏ nháy
+            Console.CursorVisible = false;   
             Console.WriteLine("===SNAKE GAME===");
             Console.WriteLine("Huong dan choi game: ");
             Console.WriteLine("- Nhan phim bat ky de choi");
             Console.WriteLine("- Nhan phim P de tam dung choi");
             Console.WriteLine("- Nhan phim R de choi lai van moi");
             Console.WriteLine("- Nhan phim Q de ngung choi");
-            //Doi nguoi choi bam phim
-            keypress = Console.ReadKey();    //input key???
+           
+            keypress = Console.ReadKey();    
             if (keypress.Key == ConsoleKey.Q) Environment.Exit(0);
         }
-        //Cai dat thong so ban dau game
         void Setup()
         {
-            dir = "RIGHT"; pre_dir = ""; //mac dinh di chuyen sang phai
+            dir = "RIGHT"; pre_dir = ""; 
             score = 0; nTail = 0;
             gameOver = reset = isprinted = false;
-            headX = 30; //vi tri dau tien con ran (dam bao ko vuot qua width)
-            headY = 10; //vi tri dau tien con ran (dam bao ko vuot qua height)
-            randomQua();//sinh ngau nhien phan qua 
+            headX = 30; 
+            headY = 10; 
+            randomQua();
         }
-        //Sinh ngau nhien diem an qua
+        
         void randomQua()
         {
             if (score < 5) typefruit = 1;
             else typefruit = rand.Next(1, 5);
 
-            fruitX = rand.Next(1, width - 1); //ko lay gia tri 0 va width vi BIEN
-            fruitY = rand.Next(1, height - 1);//ko lay gia tri 0 va heigth vi BIEN
+            fruitX = rand.Next(1, width - 1); 
+            fruitY = rand.Next(1, height - 1);
         }
-        //Cap nhat man hinh khi thao tac
+        
         void Update()
         {
             while (!gameOver)
             {
-                //con choi tiep, chua co chet!!!
-                CheckInput(); //cho bam phim
-                Logic();      //kiem tra phim bam
-                Render();     //hien thi man hinh
+                
+                CheckInput(); 
+                Logic();      
+                Render();     
 
                 if (reset) break;
-                //Thread.Sleep(10); //chay process trong vong 1000ml 
-                Thread.Sleep(getDelay());   //Phat trien: tuy chinh toc do
+                
+                Thread.Sleep(getDelay());   
             }
             if (gameOver) Lose();
         }
-        //Phat trien: dieu chinh toc do theo diem
+        
         int getDelay()
         {
-            if (score < 10) return 300;
+            if (score < 10) return 200;
             if (score < 20) return 50;
             if (score < 50) return 10;
             return 5;
@@ -89,9 +88,9 @@ namespace CGO_Thuchanh_Snakegame
         {
             while (Console.KeyAvailable)
             {
-                //CHo bam phim bat ky 
+               
                 keypress = Console.ReadKey();
-                //luu lai thao tac phim truoc do
+               
                 pre_dir = dir;
                 switch (keypress.Key)
                 {
@@ -100,17 +99,17 @@ namespace CGO_Thuchanh_Snakegame
                     case ConsoleKey.DownArrow: dir = "DOWN"; break;
                     case ConsoleKey.UpArrow: dir = "UP"; break;
 
-                    case ConsoleKey.P: dir = "STOP"; break;   //play -> P (pause) -> stop
+                    case ConsoleKey.P: dir = "STOP"; break;   
                     case ConsoleKey.Q: Environment.Exit(0); break;
                 }
             }
         }
-        //Kiem tra phim nhan dieu huong
+        
         void Logic()
         {
-            int preX = TailX[0], preY = TailY[0]; // (x,y)
+            int preX = TailX[0], preY = TailY[0]; 
             int tempX, tempY;
-            //0 1 2 3 4 => Con rắn ăn thêm quà            //x 0 1 2 3 4 => Chen them vo mang
+            
             if (dir != "STOP")
             {
                 TailX[0] = headX; TailY[0] = headY;
@@ -132,7 +131,7 @@ namespace CGO_Thuchanh_Snakegame
                     {
                         while (true)
                         {
-                            Console.Clear(); //xoa cac hien thi tren man hinh
+                            Console.Clear(); 
                             Console.WriteLine("===SNAKE GAME===");
                             Console.WriteLine("Dang tam dung choi game!");
                             Console.WriteLine("- Nhan phim P de tiep tuc choi");
@@ -145,47 +144,46 @@ namespace CGO_Thuchanh_Snakegame
                             {
                                 reset = true; break;
                             }
-                            if (keypress.Key == ConsoleKey.P) //tiep tuc choi du lieu dang luu TailX, TailY, ....
+                            if (keypress.Key == ConsoleKey.P)
                                 break;
                         }
                     }
                     dir = pre_dir; break;
             }
-            //kiem tra va cham vat can 
+           
             if (headX <= 0 || headX >= width - 1 || headY <= 0 || headY >= height - 1)
                 gameOver = true;
             else gameOver = false;
-            //kiem tra diem an qua
-            if (headX == fruitX && headY == fruitY) //trung toa do
+            
+            if (headX == fruitX && headY == fruitY) 
             {
-                score += 3 * typefruit; //tinh diem khi an qua !!!
-                nTail++;    //tang kich thuoc con rang    
-                randomQua();//khoi tao diem qua moi
+                score += 3 * typefruit; 
+                nTail++;     
+                randomQua();
             }
-            //kiem tra di chuyen lien tuc
-            //kiem tra di chuyen ngang LEFT , RIGHT
+
             if (((dir == "LEFT" && pre_dir != "UP") && (dir == "LEFT" && pre_dir != "DOWN")) || ((dir == "RIGHT" && pre_dir != "UP") && (dir == "RIGHT" && pre_dir != "DOWN")))
-                horizontal = true; //di chuyen lien tuc theo chieu ngang
+                horizontal = true; 
             else horizontal = false;
-            //kiem tra di chuyen doc UP, DOWN
+            
             if (((dir == "UP" && pre_dir != "LEFT") && (dir == "UP" && pre_dir != "RIGHT")) || ((dir == "DOWN" && pre_dir != "LEFT") && (dir == "DOWN" && pre_dir != "RIGHT")))
-                vertical = true; //di chuyen lien tuc theo chieu doc
+                vertical = true; 
             else vertical = false;
 
-            //kiem tra con ran va cham than con ran
+            
             for (int i = 1; i < nTail; i++)
             {
                 if (headX == TailX[i] && headY == TailY[i])
                 {
-                    //quay dau 180
+                    
                     if (horizontal || vertical) gameOver = false;
                     else gameOver = true;
                 }
-                if (fruitX == TailX[i] && fruitY == TailY[i]) //qua sinh trung than con ran -> sinh lai ngau nhien qua
+                if (fruitX == TailX[i] && fruitY == TailY[i]) 
                     randomQua();
             }
         }
-        //Hien thi thay doi man hinh
+        
         void Render()
         {
             Console.SetCursorPosition(0, 0);
@@ -193,55 +191,55 @@ namespace CGO_Thuchanh_Snakegame
             {
                 for (int j = 0; j < width; j++)
                 {
-                    if (i == 0 || i == height - 1) //vien khung ben tren va duoi
-                        {
-                        Console.ForegroundColor = ConsoleColor.Cyan;
-                        Console.Write("#");
-                        }
-                    else if (j == 0 || j == width - 1) //vien khung ben trai va phai
+                    if (i == 0 || i == height - 1) 
                     {
                         Console.ForegroundColor = ConsoleColor.Cyan;
                         Console.Write("#");
                     }
-                    else if (fruitX == j && fruitY == i) // qua
+                    else if (j == 0 || j == width - 1) 
+                    {
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        Console.Write("#");
+                    }
+                    else if (fruitX == j && fruitY == i) 
                     {
                         Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.Write(symbolfruit[typefruit - 1]); //Phat trien: xuat nhieu dang ki thu theo typeFruit
+                        Console.Write(symbolfruit[typefruit - 1]); 
                         Console.ForegroundColor = ConsoleColor.Green;
                     }
-                    else if (headX == j && headY == i) // dau cua con ran
+                    else if (headX == j && headY == i) 
                     {
                         Console.ForegroundColor = ConsoleColor.White;
                         Console.Write("0");
                     }
                     else
-                    {   //than con ran
+                    {   
                         isprinted = false;
                         for (int k = 0; k < nTail; k++)
                         {
                             if (TailX[k] == j && TailY[k] == i)
                             {
                                 Console.ForegroundColor = ConsoleColor.Red;
-                                Console.Write("o"); //than con ran
+                                Console.Write("o"); 
                                 Console.ForegroundColor = ConsoleColor.Green;
                                 isprinted = true;
                             }
                         }
-                        if (!isprinted) Console.Write(" "); //o trong khung hinh
+                        if (!isprinted) Console.Write(" "); 
                     }
                 }
-                Console.WriteLine(); //xuong dong cuoi hang
+                Console.WriteLine(); 
             }
-            //Hien thi panel thong tin
+            
             Console.ForegroundColor = ConsoleColor.Green;
-            //Phat trien: load lai diem highscore tu file score.txt
+            
             Console.WriteLine("Diem cua ban: {0} | Diem cao nhat: {1}", score, high_score);
         }
-        //Xy ly game thua
+        
         void Lose()
         {
-            if (high_score < score) high_score = score; //cap nhat diem cao nhat sau khi thua
-            //Phat trien: ghi highscore -> score.txt luu diem
+            if (high_score < score) high_score = score; 
+            
 
             Console.WriteLine("===SNAKE GAME===");
             Console.WriteLine("Ban da thua!");
@@ -268,8 +266,6 @@ namespace CGO_Thuchanh_Snakegame
                 snakegame.Update();
                 Console.Clear();
             }
-
-
         }
     }
 }
