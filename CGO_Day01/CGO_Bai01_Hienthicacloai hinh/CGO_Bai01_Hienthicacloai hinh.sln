@@ -5,6 +5,8 @@ VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CGO_Bai01_Hienthicacloai hinh", "CGO_Bai01_Hienthicacloai hinh\CGO_Bai01_Hienthicacloai hinh.csproj", "{BE66B55A-C03E-439B-BD8C-734CE808C13B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CG)_day04_Addphantuvaomang", "CG)_day04_Addphantuvaomang\CG)_day04_Addphantuvaomang.csproj", "{CEBB780C-E7C2-4A09-A4A9-0101ECF482D5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{BE66B55A-C03E-439B-BD8C-734CE808C13B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE66B55A-C03E-439B-BD8C-734CE808C13B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE66B55A-C03E-439B-BD8C-734CE808C13B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEBB780C-E7C2-4A09-A4A9-0101ECF482D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEBB780C-E7C2-4A09-A4A9-0101ECF482D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEBB780C-E7C2-4A09-A4A9-0101ECF482D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEBB780C-E7C2-4A09-A4A9-0101ECF482D5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
